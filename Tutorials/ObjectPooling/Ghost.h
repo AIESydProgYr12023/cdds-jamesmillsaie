@@ -8,5 +8,6 @@ public:
 	Ghost();
 
 	void Draw() override;
+	void Update(float _dt) override;
 
 };

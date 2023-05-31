@@ -1,12 +1,13 @@
 #pragma once
 
+#include "Factory.h"
 #include "Enemy.h"
 
-class EnemyFactory
+class EnemyFactory : public Factory<Enemy>
 {
 public:
 	EnemyFactory();
 
-	Enemy* Create(eEnemyType _type);
+	Enemy* Create(unsigned char _type) override;
 
 };

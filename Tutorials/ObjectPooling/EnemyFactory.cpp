@@ -8,12 +8,12 @@
 
 EnemyFactory::EnemyFactory() = default;
 
-Enemy* EnemyFactory::Create(eEnemyType _type)
+Enemy* EnemyFactory::Create(unsigned char _type)
 {
-	if (_type == eEnemyType::GHOST)
+	if (_type == (unsigned char)eEnemyType::GHOST)
 		return new Ghost();
 
-	if (_type == eEnemyType::ZOMBIE)
+	if (_type == (unsigned char)eEnemyType::ZOMBIE)
 		return new Zombie();
 
 	std::cout << "Unknown enemy type!" << std::endl;

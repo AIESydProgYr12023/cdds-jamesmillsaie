@@ -11,3 +11,14 @@ void Ghost::Draw()
 {
 	DrawCircleV(m_position, 10.f, GRAY);
 }
+
+void Ghost::Update(float _dt)
+{
+	if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+	{
+		if (CheckCollisionPointCircle(GetMousePosition(), m_position, 10.f))
+		{
+			SetAlive(false);
+		}
+	}
+}

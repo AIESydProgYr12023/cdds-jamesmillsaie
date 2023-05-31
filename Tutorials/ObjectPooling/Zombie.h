@@ -8,5 +8,6 @@ public:
 	Zombie();
 
 	void Draw() override;
+	void Update(float _dt) override;
 
 };
