@@ -2,6 +2,10 @@
 
 #include "IGameState.h"
 
+#include <raylib/raylib.h>
+
+template<typename DATA>
+class QuadTree;
 class GameStateManager;
 
 class QuadTreeState : public IGameState
@@ -16,6 +20,7 @@ public:
 	virtual void Unload() override;
 
 private:
+	QuadTree<Vector2>* m_quadTree;
 
 };
 
