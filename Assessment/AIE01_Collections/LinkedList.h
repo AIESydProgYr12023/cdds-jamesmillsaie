@@ -138,7 +138,20 @@ public:
 
     void PopFront()
     {
-        // TODO
+        if (IsEmpty())
+            return;
+
+        Node* first = m_first;
+        m_first = m_first->next;
+
+        if (m_first != nullptr)
+            m_first->prev = nullptr;
+
+        if (m_first == nullptr)
+            m_last = nullptr;
+
+        delete first;
+        m_count--;
     }
 
     void Clear()
@@ -149,7 +162,30 @@ public:
     // return the iterator that would be in this location after removing
     Iterator Remove(Iterator _iter)
     {
-        return Iterator();
+        Node*& nodeToRemove = _iter.node;
+        if (nodeToRemove == nullptr)
+            return _iter;
+
+        if (nodeToRemove == m_first)
+        {
+            PopFront();
+            return Iterator(m_first);
+        }
+        else if (nodeToRemove == m_last)
+        {
+            PopBack();
+            return Iterator(m_last);
+        }
+        else
+        {
+            nodeToRemove->prev->next = nodeToRemove->next;
+            nodeToRemove->next->prev = nodeToRemove->prev;
+
+            Node*& next = nodeToRemove->next;
+            delete nodeToRemove;
+            m_count--;
+            return Iterator(next);
+        }
     }
 
     Iterator RemoveAt(const int _index)
@@ -193,9 +229,9 @@ public:
     }
 
     // Is this list completely empty
-    bool IsEmpty()
-    {
-        return false;
+    bool IsEmpty() 
+    { 
+        return m_first == nullptr && m_last == nullptr; 
     }
 
     // Amount of items in the list

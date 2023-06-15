@@ -1,6 +1,9 @@
 #pragma once
 #include "IGameState.h"
 
+class Graph2D;
+class GraphEditor;
+
 class GraphState : public IGameState
 {
 public:
@@ -11,5 +14,7 @@ public:
 	virtual void OnDestroy() override;
 
 private:
+	GraphEditor* m_editor = nullptr;
+	Graph2D* m_graph = nullptr;
 
 };

@@ -97,6 +97,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\include;</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -104,6 +105,9 @@
       <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\lib\raylib\;</AdditionalLibraryDirectories>
       <AdditionalDependencies>raylibdll.lib;winmm.lib;kernel32.lib;opengl32.lib;gdi32.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>copy /Y "$(SolutionDir)Dependencies\lib\raylib\raylib.dll" "$(SolutionDir)Builds\$(ProjectName)\$(Configuration)\raylib.dll"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -114,6 +118,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\include;</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -123,6 +128,9 @@
       <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\lib\raylib\;</AdditionalLibraryDirectories>
       <AdditionalDependencies>raylibdll.lib;winmm.lib;kernel32.lib;opengl32.lib;gdi32.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>copy /Y "$(SolutionDir)Dependencies\lib\raylib\raylib.dll" "$(SolutionDir)Builds\$(ProjectName)\$(Configuration)\raylib.dll"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -131,6 +139,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\include;</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -138,6 +147,9 @@
       <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\lib\raylib\;</AdditionalLibraryDirectories>
       <AdditionalDependencies>raylibdll.lib;winmm.lib;kernel32.lib;opengl32.lib;gdi32.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>copy /Y "$(SolutionDir)Dependencies\lib\raylib\raylib.dll" "$(SolutionDir)Builds\$(ProjectName)\$(Configuration)\raylib.dll"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -148,6 +160,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\include;</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -157,16 +170,24 @@
       <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\lib\raylib\;</AdditionalLibraryDirectories>
       <AdditionalDependencies>raylibdll.lib;winmm.lib;kernel32.lib;opengl32.lib;gdi32.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>copy /Y "$(SolutionDir)Dependencies\lib\raylib\raylib.dll" "$(SolutionDir)Builds\$(ProjectName)\$(Configuration)\raylib.dll"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
     <ClInclude Include="GameStateManager.h" />
+    <ClInclude Include="Graph.h" />
+    <ClInclude Include="Graph2D.h" />
+    <ClInclude Include="GraphEditor.h" />
     <ClInclude Include="GraphState.h" />
     <ClInclude Include="IGameState.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="GameStateManager.cpp" />
+    <ClCompile Include="Graph2D.cpp" />
+    <ClCompile Include="GraphEditor.cpp" />
     <ClCompile Include="GraphState.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
